@@ -7,12 +7,17 @@ class Solution:
 #             return 1
 
 #         return self.climbStairs(n-1)+self.climbStairs(n-2)
-        dp=[0]*(n+1)
-        dp[1]=1
-        dp[0]=1
+        
+        
+        prev1=1
+        prev2=1
+        curr_i=1
         for i in range(2,n+1):
-            dp[i]=dp[i-1]+dp[i-2]
-        return dp[n]
+            curr_i=prev1+prev2
+        
+            prev1=prev2
+            prev2=curr_i
+        return curr_i
         
         
         
