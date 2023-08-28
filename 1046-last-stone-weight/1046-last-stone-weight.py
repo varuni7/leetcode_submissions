@@ -8,13 +8,14 @@ class Solution:
             heapq.heapify(stones)
             largest_stone = heapq.heappop(stones)
             scnd_largest_stone = heapq.heappop(stones)
-            if largest_stone == scnd_largest_stone and len(stones)>0:
+            if largest_stone == scnd_largest_stone:
                 continue 
-            elif largest_stone == scnd_largest_stone and len(stones)==0:
-                return 0
+             
                 
             else:
                 heapq.heappush(stones,-abs(largest_stone-scnd_largest_stone))
+        if len(stones)==0:
+            return 0
         return abs(stones[0])
         
         
